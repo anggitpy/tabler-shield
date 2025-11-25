@@ -1,68 +1,163 @@
-# CodeIgniter 4 Application Starter
+# Tabler + CodeIgniter 4 + Shield Auth Starter
 
-## What is CodeIgniter?
+A starter template that integrates:
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+* **CodeIgniter 4** (backend framework)
+* **Shield Auth** (authentication system)
+* **Tabler UI** (premium admin dashboard UI)
+* **Feather Icons** (lightweight icons)
+* Asset management using **npm** + custom copy scripts
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+This project helps you kickstart modern CI4 development with a clean UI and a complete authentication setup.
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+---
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+## Features
 
-## Installation & updates
+✔ CodeIgniter 4 latest version
+✔ Shield authentication (login, register, password reset)
+✔ Tabler UI integrated locally (no CDN)
+✔ Feather icons ready to use
+✔ Local asset build using **npm** (node_modules → public/assets)
+✔ Clean folder structure for easy customization
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+---
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+## Requirements
 
-## Setup
+Make sure you have installed:
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+* **PHP 8.1+**
+* **Composer**
+* **Node.js + npm**
+* (optional) **cpx** installed via npm scripts
 
-## Important Change with index.php
+---
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+## Installation
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+Clone the repo:
 
-**Please** read the user guide for a better explanation of how CI4 works!
+```bash
+git clone https://github.com/anggitpy/tabler-shield.git
+cd tabler-shield
+```
 
-## Repository Management
+### Install PHP dependencies
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+```bash
+composer update
+```
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+### Install Node dependencies
 
-## Server Requirements
+```bash
+npm install
+```
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+### Copy frontend assets to `public/assets`
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+```bash
+npm run copy:all
+```
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+This command will copy:
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+* Tabler assets from `node_modules/@tabler/core/dist/`
+* Feather icons from `node_modules/feather-icons/dist/`
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+Into:
+
+```
+public/assets/tabler/
+public/assets/feather/
+```
+
+---
+
+## Configuration
+
+Copy the environment file:
+
+```bash
+cp env .env
+```
+
+Then edit `.env` and set:
+
+```
+CI_ENVIRONMENT = development
+app.baseURL = 'http://localhost:8080'
+```
+
+Configure your database:
+
+```
+database.default.hostname = localhost
+database.default.database = your_db
+database.default.username = root
+database.default.password =
+database.default.DBDriver = MySQLi
+```
+
+Run migrations:
+
+```bash
+php spark migrate
+php spark db:seed
+```
+
+(If Shield needs seeding)
+
+---
+
+## Running the App
+
+Start the development server:
+
+```bash
+php spark serve
+```
+
+Access the site:
+
+👉 [http://localhost:8080](http://localhost:8080)
+
+---
+
+## 🧩 Folder Structure
+
+```
+app/
+public/
+  assets/
+    tabler/
+    feather/
+node_modules/
+```
+
+Your editable UI pages are inside:
+
+```
+app/Views/
+```
+
+---
+
+## UI Components
+
+* All layout templates use **Tabler HTML structure**
+* Icons use **Feather** via:
+
+```html
+<i data-feather="user"></i>
+<script> feather.replace(); </script>
+```
+
+---
+
+## Notes
+
+* Do NOT commit `node_modules`
+* The project uses npm copy scripts instead of bundlers for simplicity
+* You can customize Tabler by editing files inside `/public/assets/tabler`
