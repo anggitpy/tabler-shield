@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@tabler/core": "^1.4.0",
+    "feather-icons": "^4.29.2"
+  },
+  "scripts": {
+    "copy:tabler": "cpx \"node_modules/@tabler/core/dist/**/*\" public/assets/tabler",
+    "copy:feather": "cpx \"node_modules/feather-icons/dist/**/*\" public/assets/feather",
+    "copy:all": "npm-run-all copy:tabler copy:feather"
+  },
+  "devDependencies": {
+    "cpx": "^1.5.0"
+  }
+}
