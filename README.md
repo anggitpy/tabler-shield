@@ -14,12 +14,12 @@ This project helps you kickstart modern CI4 development with a clean UI and a co
 
 ## Features
 
-✔ CodeIgniter 4 latest version
-✔ Shield authentication (login, register, password reset)
-✔ Tabler UI integrated locally (no CDN)
-✔ Feather icons ready to use
-✔ Local asset build using **npm** (node_modules → public/assets)
-✔ Clean folder structure for easy customization
+* CodeIgniter 4 latest version
+* Shield authentication (login, register, password reset)
+* Tabler UI integrated locally (no CDN)
+* Feather icons ready to use
+* Local asset build using **npm** (node_modules → public/assets)
+* Clean folder structure for easy customization
 
 ---
 
