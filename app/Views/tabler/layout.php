@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme-primary="indigo">
 
 <head>
     <meta charset="utf-8" />
@@ -8,10 +8,6 @@
     <title>Tabler x Shield Codeigniter 4</title>
     <link rel="icon" href="./favicon-dev.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="./favicon-dev.ico" type="image/x-icon" />
-
-    <!-- BEGIN PAGE LEVEL STYLES -->
-    <link href="./assets/tabler/libs/jsvectormap/dist/jsvectormap.css?1764034196" rel="stylesheet" />
-    <!-- END PAGE LEVEL STYLES -->
 
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="./assets/tabler/css/tabler.css?1764034196" rel="stylesheet" />
@@ -108,6 +104,7 @@
 
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
     <script src="./assets/tabler/js/tabler.js" defer></script>
+    <script src="./assets/tabler/js/tabler-theme.min.js" defer></script>
     <script src="./assets/feather/feather.min.js"></script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->
 
