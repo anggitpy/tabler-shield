@@ -58,7 +58,8 @@ npm install
 ### Copy frontend assets to `public/assets`
 
 ```bash
-npm run copy:all
+npm run copy:tabler
+npm run copy:feather
 ```
 
 This command will copy:
@@ -104,7 +105,6 @@ Run migrations:
 
 ```bash
 php spark migrate
-php spark db:seed
 ```
 
 (If Shield needs seeding)
